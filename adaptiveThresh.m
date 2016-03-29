@@ -11,6 +11,8 @@ for i = 1:1:size(gray_im,1)
             filtered(i,j) = sum(sum(double(padded(i:i+kernelSize-1,j:j+kernelSize-1)) .* (sensitivity * kernel)));
         end
 end
+% imshow(uint8(filtered));
+% pause();
 %==================================================================
 thresh = zeros(size(gray_im));
 for i = 1:1:size(filtered,1)
