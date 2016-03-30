@@ -6,7 +6,7 @@ function [ count ] = ccl( bwimage, minPixels )
     labeled = zeros(size(bwimage));
     
     label = 1;
-    equivTable = zeros(10000,2);
+    equivTable = zeros(1000000,2);
 
     for i = 1:1:size(bwimage,1)
         for j = 1:1:size(bwimage,2)
@@ -81,7 +81,6 @@ function [ count ] = ccl( bwimage, minPixels )
     count = 0;
     a = unique(labeled);
     out = [a,histc(labeled(:),a)];
-%     disp(out);
     for i = 2:size(out,1)
         if out(i,2) > minPixels
             count = count + 1;
